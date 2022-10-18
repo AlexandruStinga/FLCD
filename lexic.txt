@@ -19,10 +19,12 @@ Identifiers:
 
 Constants: 
 
-1. <integer> ::= "0" | ["+" | "-"] <non_zero_digit>{digit}
+1. <integer> ::= "0" | <unsigned> | '-' <unsigned>
+   <unsigned> ::= <non_zero_digit> | <digit_sequence> | <non_zero_digit>
+   <digit_sequence> ::= <digit> <digit_sequence> | <digit>
 
 2. <character> ::= <letter> | <digit>
 
-3. <string> ::= {<letter>|<digit>}
+3. <string> ::= <letter> <string> | <letter>
 
 4. <constant> ::= <integer> | <character> | <string>
