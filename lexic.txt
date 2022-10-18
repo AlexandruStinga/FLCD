@@ -1,0 +1,30 @@
+Alphabet:
+
+a. Upper and lowercase letters of the English alphabet A-Z, a-z
+b. Underscore '_'
+c. Decimal digits
+
+Special symbols, representing:
+
+- operators: + - * / = > < <= >= == != and or
+- separators ( ) { } ; , <space> [ ]
+- reserved words: number, string, if, else, for, while, read, print, sqrt
+
+Identifiers:
+
+<identifier> ::= <letter> | <letter> {<letter>|<digit>}
+<letter> ::= "A" | "B" | ... | "Z" | "a" | "b" | ... | "z"
+<digit> ::= "0" | <non_zero_digit>
+<non_zero_digit> ::= "1" | "2" | "3" | ... | "9"
+
+Constants: 
+
+1. <integer> ::= "0" | <unsigned> | '-' <unsigned>
+   <unsigned> ::= <non_zero_digit> | <digit_sequence> | <non_zero_digit>
+   <digit_sequence> ::= <digit> <digit_sequence> | <digit>
+
+2. <character> ::= <letter> | <digit>
+
+3. <string> ::= <letter> <string> | <letter>
+
+4. <constant> ::= <integer> | <character> | <string>

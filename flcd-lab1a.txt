@@ -1,0 +1,62 @@
+------------------------------------ p1 - maximum between 3 nums
+
+number a, b, c, max;
+
+read(a, b, c);
+
+max = 0;
+
+if((a > b) and (a > c)) {
+	max = a;
+}
+else if(b > c) {
+	max = b;
+}
+else {
+	max = c;
+}
+print(max);
+
+------------------------------------ p2 - solutions of a quadratic equation
+
+number a, b, c, x1, x2;
+
+read(a, b, c);
+
+x1 = (-(b + sqrt(b^2 - 4*a*c))/2*a;
+x2 = (-(b - sqrt(b^2 - 4*a*c))/2*a;
+
+print(x1, x2);
+
+
+----------------------------------- p3 - sum of n numbers
+
+number n, a, i, s;
+s = 0;
+read(n);
+
+for(i = 0; i < n; i++) {
+	read(a);
+	s = s + a;
+}
+print(s);
+
+
+--------------------------------- p1err - lexical errors
+
+number 1a, b, c, max;
+
+read(a, b, c)$;
+
+max = 0;
+
+if((a > b) and (a > c)) {
+	max = a;
+}
+else if(b > c) {
+	max = b;
+}
+else {
+	max = c;
+}
+print(max);
