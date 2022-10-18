@@ -1,0 +1,41 @@
+<type> ::= "number" | "string" | <array_declaration>
+
+<array_declaration> ::= "number" "[" <integer> "]"
+
+<readstmt> ::= "read(" <identifier> ")"
+
+<declaration> ::= <type> " " <identifier>
+
+<decllist> ::= <declaration> | <declaration> ", " <decllist>
+
+<printstmt> ::= "print(" (<identifier> | <constant>) ")"
+
+<relation> ::= "<" | "<=" | "==" | "!=" | ">=" | ">"
+
+<expression> ::= (<expression> "+" | "-" <term>) | <term>
+
+<term> ::= (<term> "*" | "/" <factor>) | <factor>
+
+<factor> ::= "(" expression ")" | <integer> | <identifier>
+
+<cmpdstmt> ::= "{" <stmtlist> "}"
+
+<stmtlist> ::= <stmt> | (<stmt> ";" <stmtlist>)
+
+<stmt> ::= <simplestmt> | <structstmt>
+
+<simplestmt> ::= (<assignstmt> | <readstmt> | <printstmt> | <declaration>) ";"
+
+<structstmt> ::= <cmpdstmt> | <ifstmt> | <forstmt> | <whilestmt>
+
+<assignstmt> ::= <identifier> "=" <expression>
+
+<ifstmt> ::= "if" <condition> <stmt> ["else" <stmt>]
+
+<condition> ::= "(" <expression> <relation> <expression> ")"
+
+<forstmt> ::= "for" "(" "number" <assignstmt> ";" <condition> ";" <assignstmt> ")" <stmt>
+
+<whilestmt> ::= "while" <condition> <stmt>
+
+<sqrtstmt> ::= "sqrt(" (<integer> | <identifier>) ")"
