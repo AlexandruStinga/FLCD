@@ -1,6 +1,6 @@
-number 1a, b, c, max;
+number a, b, c, max;
 
-read(a, b, c)$;
+read(a, b, c);
 
 max = 0;
 
