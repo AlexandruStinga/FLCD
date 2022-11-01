@@ -1,0 +1,16 @@
+number 1a, b, c, max;
+
+read(a, b, c)$;
+
+max = 0;
+
+if((a > b) and (a > c)) {
+	max = a;
+}
+else if(b > c) {
+	max = b;
+}
+else {
+	max = c;
+}
+print(max);
