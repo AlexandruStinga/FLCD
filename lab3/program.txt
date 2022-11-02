@@ -1,10 +1,10 @@
-number a, b, c, max;
+number 2a, a, c, max;
 
 read(a, b, c);
 
 max = 0;
 
-if((a > b) and (a > c)) {
+if((a >= b) and (a > c)) {
 	max = a;
 }
 else if(b > c) {
