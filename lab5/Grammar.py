@@ -26,16 +26,14 @@ class Grammar:
             print()
 
     def print_productions_for_non_terminal(self, n):
-        print("Productions for non-terminal", n, ":")
-        for p in self.P:
-            if p[0] == n:
-                print(p[0], end=" ")
-                for i in range(1, len(p)):
-                    print(p[i], end=" ")
-                print()
+        print("Productions for nonterminal " + n + ":")
+        for key in self.P.keys():
+            if key == n:
+                print(self.P[key])
 
     def check_if_context_free_grammar(self):
         for p in self.P:
-            if len(p) == 1:
-                return False
+            for i in range(1, len(p)):
+                if p[i] not in self.N and p[i] not in self.E:
+                    return False
         return True

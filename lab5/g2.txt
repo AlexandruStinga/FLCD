@@ -1,0 +1,26 @@
+N = type array_declaration readstmt declaration decllist printstmt relation expression term factor cmpdstmt stmtlist stmt simplestmt structstmt assignstmt ifstmt condition forstmt whilestmt sqrtstmt
+E = + - * / == = >=  > = != { } ( ) [ ] ; space and or for if else number string read print sqrt while
+S = cmpdstmt
+cmpdstmt -> { stmtlist }
+stmtlist -> stmt | stmt ; stmtlist
+type -> number | string | array_declaration
+array_declaration> -> number [ unsigned ]
+readstmt> -> read( identifier )
+declaration> -> type identifier
+decllist> -> declaration | declaration , decllist
+printstmt> -> print( identifier ) | print ( constant )
+relation> ->  < | <= | == | != | >= | >
+expression> -> expression> + term | expression - term | term
+term> -> term * factor | term / factor | factor
+factor> -> ( expression ) | integer | identifier
+cmpdstmt> -> { stmtlist }
+stmtlist> -> stmt> | stmt ; stmtlist
+stmt> -> simplestmt | structstmt
+simplestmt> -> assignstmt ; | readstmt ; | printstmt ; | declaration ;
+structstmt> -> cmpdstmt | ifstmt | forstmt | whilestmt
+assignstmt> -> identifier = expression
+ifstmt> -> if condition stmt | if condition stmt else stmt
+condition> -> ( expression relation expression> )
+forstmt> -> for ( number assignstmt ; condition ; assignstmt ) stmt
+whilestmt> -> while condition stmt
+sqrtstmt> -> sqrt( integer ) | sqrt( identifier )
