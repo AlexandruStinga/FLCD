@@ -25,11 +25,15 @@ class Parser:
         self.state = 'b'
 
     def back(self):
+        print("here")
         self.index -= 1
         head = self.working_stack.pop()
         self.input_stack.insert(0, head)
+        print("BACK WS: ", self.working_stack)
+        print("BACK IS: ", self.input_stack)
 
     def success(self):
+        print("success")
         self.state = 'f'
 
     def another_try(self):
@@ -51,22 +55,25 @@ class Parser:
 
     def parse(self, word):
         while self.state != 'f' and self.state != 'e':
+            print("WS: ", self.working_stack)
+            print("IS: ", self.input_stack)
             if self.state == 'q':
-                if len(self.input_stack) == 0 and self.index == len(word):
+                if len(self.input_stack) == 0 and self.index >= len(word):
                     self.success()
-                elif len(self.input_stack) == 0:
-                    self.momentary_insuccess()
-                elif self.input_stack[0] in self.grammar.get_nonterminals():
-                    self.expand()
-
-                elif self.index < len(word) and self.input_stack[0] == word[self.index]:
-                    self.advance()
                 else:
-                    self.momentary_insuccess()
+                    if len(self.input_stack) > 0 and self.input_stack[0] in self.grammar.get_nonterminals():
+                        self.expand()
+                    else:
+                        if len(self.input_stack) > 0 and self.input_stack[0] == word[self.index]:
+                            self.advance()
+                        else:
+                            self.momentary_insuccess()
 
             elif self.state == 'b':
                 if self.working_stack[-1] in self.grammar.get_terminals():
+                    # print("bacl here")
                     self.back()
                 else:
                     self.another_try()
+            #print(self.working_stack)
 
