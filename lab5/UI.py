@@ -32,7 +32,10 @@ class UI:
             elif command == "6":
                 word = input("Enter word: ")
                 parser = Parser(self.grammar)
-                parser.parse([*word])
+                try:
+                    parser.parse([*word])
+                except:
+                    print('The word is not accepted')
                 if parser.state == 'f':
                     print("The word is accepted")
                 else:

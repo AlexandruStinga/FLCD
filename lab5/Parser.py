@@ -7,7 +7,7 @@ class Parser:
         self.state = 'q'
         self.index = 0
         self.working_stack = []
-        self.input_stack = [self.grammar.S]
+        self.input_stack = self.grammar.S
 
     def expand(self):
         head = self.input_stack.pop(0)
@@ -38,14 +38,14 @@ class Parser:
             prod_index += 1
             self.working_stack.append((nonterminal, prod_index))
             new_production = self.grammar.P[nonterminal][prod_index]
-            self.input_stack = self.input_stack[len(self.grammar.P[nonterminal][prod_index - 1]):]
+            del self.input_stack[:len(self.grammar.P[nonterminal][prod_index - 1])]
             self.input_stack.insert(0, new_production)
             self.input_stack = flatten(self.input_stack)
             self.state = 'q'
         elif self.index == 0 and self.input_stack[-1] == self.grammar.S:
             self.state = 'e'
         else:
-            self.input_stack = self.input_stack[len(self.grammar.P[nonterminal][prod_index]):]
+            del self.input_stack[:len(self.grammar.P[nonterminal][prod_index])]
             self.input_stack.insert(0, nonterminal)
             self.input_stack = flatten(self.input_stack)
 
