@@ -4,18 +4,13 @@ class Grammar:
         self.E = E
         self.P = P
         self.S = S
+        print(self.N, self.E, self.P, self.S)
 
-    def print_nonterminals(self):
-        print("Nonterminals: ", end="")
-        for n in self.N:
-            print(n, end=" ")
-        print()
+    def get_nonterminals(self):
+        return self.N
 
-    def print_terminals(self):
-        print("Terminals: ", end="")
-        for e in self.E:
-            print(e, end=" ")
-        print()
+    def get_terminals(self):
+        return self.E
 
     def print_set_of_productions(self):
         print("Set of productions:")

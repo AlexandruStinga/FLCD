@@ -1,8 +1,8 @@
 N = S A B C D
 E = a b c
 S = S
-S -> a A | a C
-A -> A B
+S -> a A | a C | s
+A -> aB
 B -> b
-C -> a C | C D
+C -> a C | c D
 D -> b
