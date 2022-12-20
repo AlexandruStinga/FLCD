@@ -12,6 +12,9 @@ class Grammar:
     def get_terminals(self):
         return self.E
 
+    def get_productions(self):
+        return self.P
+
     def print_set_of_productions(self):
         print("Set of productions:")
         for p in self.P:

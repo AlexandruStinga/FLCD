@@ -53,6 +53,12 @@ class Parser:
             self.input_stack.insert(0, nonterminal)
             self.input_stack = flatten(self.input_stack)
 
+    def get_state(self):
+        return self.state
+
+    def get_working_stack(self):
+        return self.working_stack
+
     def parse(self, word):
         while self.state != 'f' and self.state != 'e':
             print("WS: ", self.working_stack)

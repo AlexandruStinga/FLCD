@@ -3,7 +3,7 @@ from UI import UI
 
 
 def read_file():
-    with open('g1.txt', "r") as f:
+    with open('g3.txt', "r") as f:
         N = parse_line(f.readline())
         E = parse_line(f.readline())
         S = parse_line(f.readline())

@@ -1,4 +1,5 @@
 from Parser import Parser
+from ParserOutput import ParserOutput
 
 
 class UI:
@@ -13,6 +14,7 @@ class UI:
             print("4. Print productions for a given nonterminal")
             print("5. Check if grammar is a CFG")
             print("6. Parse a given word")
+            # print("7. Print parse tree")
             print("0. Exit")
             command = input("Enter command: ")
             if command == "1":
@@ -34,15 +36,18 @@ class UI:
                 parser = Parser(self.grammar)
                 try:
                     parser.parse([*word])
+                    if parser.get_state() == 'f':
+                        parser_output = ParserOutput(parser.get_working_stack(), self.grammar.get_productions())
+                        print(parser_output)
                 except:
                     print('The word is not accepted')
                 if parser.state == 'f':
                     print("The word is accepted")
                 else:
                     print("The word is not accepted")
+            # elif command == "7":
+            #   parser = ParserOutput()
             elif command == "0":
                 break
             else:
                 print("Invalid command")
-
-
