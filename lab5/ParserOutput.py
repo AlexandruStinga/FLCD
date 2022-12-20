@@ -40,7 +40,8 @@ class ParserOutput:
                 self.tree.append(node)
 
     def find_right_sibling(self, node):
-        for i in range(node.index + 1, len(self.tree)):
+        # for i in range(node.index + 1, len(self.tree)):
+        for i in range(0, node.index):
             if self.tree[i].parent == node.parent:
                 return self.tree[i].index
 
