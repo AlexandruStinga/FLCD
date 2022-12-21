@@ -1,6 +1,12 @@
 from Parser import Parser
 from ParserOutput import ParserOutput
 
+def read_sequence_from_file():
+    seq_array = []
+    with open('seq.txt', "r") as f:
+        for line in f:
+            seq_array.append(line.strip())
+    return seq_array
 
 class UI:
     def __init__(self, grammar):
@@ -33,13 +39,13 @@ class UI:
                 else:
                     print("The grammar is not a CFG")
             elif command == "6":
-                word = input("Enter word: ")
+                # word = input("Enter word: ")
                 S = self.grammar.S[:]  # making a copy so that I can run the function multiple times
                 # parser = Parser(self.grammar)
-                self.parser.parse([*word])
+                self.parser.parse(read_sequence_from_file())
                 self.grammar.S = S
                 self.parserOutput.build_tree()
-                print(self.parserOutput.print_parsing_tree())
+                self.parserOutput.print_parsing_tree()
                 if self.parser.state == 'f':
                     print("The word is accepted")
                 else:
