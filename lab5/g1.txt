@@ -1,8 +1,0 @@
-N = S A B C D
-E = a b c
-S = S
-S -> a A | a C | S
-A -> a B
-B -> b
-C -> a C | c D
-D -> b
