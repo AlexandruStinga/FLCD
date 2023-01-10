@@ -1,4 +1,6 @@
-a
-b
-b
-a
+number
+id
+id
+=
+5
+print(id)

@@ -1,5 +1,4 @@
 from utils import flatten
-import itertools
 
 class Parser:
     def __init__(self, grammar):
@@ -42,7 +41,7 @@ class Parser:
             self.input_stack.insert(0, new_production)
             self.input_stack = flatten(self.input_stack)
             self.state = 'q'
-        elif self.index == 0 and self.input_stack[-1] == self.grammar.S:
+        elif self.index == 0 and nonterminal == self.grammar.S:
             self.state = 'e'
         else:
             del self.input_stack[:len(self.grammar.P[nonterminal][prod_index])]
@@ -56,7 +55,7 @@ class Parser:
                     self.success()
                 elif len(self.input_stack) > 0 and self.input_stack[0] in self.grammar.get_nonterminals():
                     self.expand()
-                elif len(self.input_stack) > 0 and self.input_stack[0] == word[self.index]:
+                elif len(self.input_stack) > 0 and self.index < len(word) and self.input_stack[0] == word[self.index]:
                     self.advance()
                 else:
                     self.momentary_insuccess()

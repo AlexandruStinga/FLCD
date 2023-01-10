@@ -10,7 +10,7 @@ class ParserOutput:
     def build_tree(self):
         self.tree.append(Node(0, self.parser.working_stack[0][0], -1, -1))
         for i in range(1, len(self.parser.working_stack)):
-            if self.parser.working_stack[i][0].isupper():
+            if self.parser.working_stack[i][0] in self.parser.grammar.N:
                 self.tree.append(Node(i, self.parser.working_stack[i][0], self.index, -1))
                 self.index = i
             else:
@@ -42,4 +42,10 @@ class ParserOutput:
             message = str(table[i][0]) + "  " + str(table[i][1]) + "  " + str(table[i][2]) + "  " + str(table[i][3])
             print(message)
 
+        # write table to file
+        with open("output.txt", "w") as f:
+            for i in range(0, len(table)):
+                message = str(table[i][0]) + "  " + str(table[i][1]) + "  " + str(table[i][2]) + "  " + str(table[i][3])
+                f.write(message)
+                f.write("\n")
 
