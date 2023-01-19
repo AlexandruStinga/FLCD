@@ -1,0 +1,11 @@
+N = S C L P D T A N
+E = number print(id) 5 = id
+S = S
+S -> C
+C -> L C | P | D | A
+L -> D | P | A
+D -> number T
+T -> id
+P -> print(id)
+A -> T = N
+N -> 5

@@ -1,0 +1,6 @@
+number
+id
+id
+=
+5
+print(id)
